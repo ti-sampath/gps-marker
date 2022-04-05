@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+</head>
+
+<body>
+    <script>
+        AFRAME.registerPrimitive('a-ocean', {
+            // Attaches the `ocean` component by default.
+            // Defaults the ocean to be parallel to the ground.
+            defaultComponents: {
+                ocean: {},
+                rotation: { x: -90, y: 0, z: 0 }
+            },
+
+            // Maps HTML attributes to the `ocean` component's properties.
+            mappings: {
+                width: 'ocean.width',
+                depth: 'ocean.depth',
+                density: 'ocean.density',
+                color: 'ocean.color',
+                opacity: 'ocean.opacity'
+            }
+        });
+    </script>
+
+    <a-scene>
+        <a-ocean color="aqua" depth="100" width="100"></a-ocean>
+        <a-box color="green"></a-box>
+    </a-scene>
+
+
+
+
+
+
+</body>
+
+</html>

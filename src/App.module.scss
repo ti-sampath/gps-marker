@@ -1,0 +1,39 @@
+  .main{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    border: 1px solid red;
+    user-select: none;
+    pointer-events: none;
+    z-index: 999;
+
+    .co-ords{
+        user-select: none;
+        position: absolute;
+        max-width: 300px;
+        left: 0;
+        right: 0;
+        bottom: 100px;
+        margin: auto;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        > button{
+          height: 80px;
+          width: 80px;
+          pointer-events: all;
+          margin-top: 10px;
+          // padding: 20px 20px;
+          cursor: pointer;
+          &:active{
+            background-color: black;
+            color: white;
+          }
+        }
+    }
+
+  }

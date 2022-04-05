@@ -1,23 +1,32 @@
-import React from 'react'
-import classes from './ARComp.module.scss'
+import React, { useEffect, useRef } from 'react'
 
 
-const ARComp = () => {
+const ARComp = ({ lat, lon }) => {
+
+    const aSceneRef = useRef(null);
+
+
+    useEffect(() => {
+
+        let aScene = aSceneRef.current;
+        if (aSceneRef) {
+            aScene.flushToDOM(true);
+        }
+
+    }, [aSceneRef]);
+
 
     return (
-        <a-scene
-            vr-mode-ui="enabled: false"
-            arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
-        >
-            <a-text
-                value="This content will always face you."
-                look-at="[gps-camera]"
-                scale="120 120 120"
-                gps-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>;"
-            ></a-text>
+        <a-scene ref={aSceneRef} vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true;" debug>
+            <a-box color='#689f38' look-at="[gps-camera]" gps-entity-place='latitude: 17.385044; longitude: 78.486671;' ></a-box>
             <a-camera gps-camera rotation-reader> </a-camera>
         </a-scene>
     )
 }
 
+
+
 export default ARComp
+
+
+
